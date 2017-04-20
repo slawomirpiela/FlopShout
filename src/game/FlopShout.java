@@ -3,20 +3,26 @@ package game;
 import ddf.minim.AudioInput;
 import ddf.minim.Minim;
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class FlopShout extends PApplet {
 
-	float xpos = 200;
-	float ypos = 50;
 	int v_value = 0;
-	int b_height;
 	Minim minum;
 	AudioInput in;
+	PImage img;
+	float xpos = width - width/3;
+	float ypos = 200;
+	float b_height = 0;
+	int stage = 0;
+	
 	
 	public void setup()
 	{
 		minum = new Minim(this);
 		in = minum.getLineIn(Minim.MONO, width, 44100, 16);
+		img = loadImage("bird.png");
+		
 	}
 	
 	public void settings()
@@ -26,8 +32,9 @@ public class FlopShout extends PApplet {
 	
 	public void draw()
 	{
-		background(0);
+		background(255);
 		stroke(255);
+		image(img, xpos, ypos + b_height);
 		 
 		// print the values the pc is hearing
 		//println(in.left.get(v_value));
@@ -43,8 +50,10 @@ public class FlopShout extends PApplet {
 		  // will look more or less like a straight line.
 		  for(int i = 0; i < in.bufferSize() - 1; i++)
 		  {
-		    line(i, 50 + in.left.get(i)*50, i+1, 50 + in.left.get(i+1)*50);
-		    line(i, 150 + in.right.get(i)*50, i+1, 150 + in.right.get(i+1)*50);
+			  if(in.left.get(i) * 50 > 50)
+			  {
+				  b_height =+(in.left.get(i)*50);
+			  }
 		  println(((in.left.get(i)*50) + (in.right.get(i)*50) / 2));
 		  println(in.mix.get(i)*50);
 		  }
