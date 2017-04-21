@@ -2,9 +2,8 @@ package game;
 
 import ddf.minim.AudioInput;
 import ddf.minim.Minim;
-import processing.core.PApplet;
-import processing.core.PImage;
-
+import processing.core.*;
+//import processing.core.PImage;
 
 public class FlopShout extends PApplet {
 
@@ -16,33 +15,31 @@ public class FlopShout extends PApplet {
 	float xpos = width - width/3;
 	float ypos = 200;
 	float b_height = 0;
-	int stage = 1;
+	public static int stage = 0;
 	
     public static void main(String[] args)
     {
-        //String[] a = {"MAIN"};
         PApplet.main("game.FlopShout");  
     }
     
 	public void setup()
 	{
 		minum = new Minim(this);
-		menu = new Menu();
+		menu = new Menu(this);
 		in = minum.getLineIn(Minim.MONO, width, 44100, 16);
 		img = loadImage("bird.png");
 	}
 	
 	public void settings()
 	{
-		size(800,800);
+		size(1000,800);
 	}
 	
 	public void draw()
 	{
-		//menu.draw();
-		background(255);
-		stroke(255);
 		if(stage == 1){
+			background(255);
+			stroke(255);
 		image(img, xpos, ypos + b_height);
 		 
 		  for(int i = 0; i < in.bufferSize() - 1; i++)
@@ -55,6 +52,9 @@ public class FlopShout extends PApplet {
 		  println(in.mix.get(i)*50);
 		  }
 		}
+		menu.draw();
+		
+		println(stage);
 	}
 	
 }
