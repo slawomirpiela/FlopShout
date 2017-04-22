@@ -1,9 +1,11 @@
 package game;
 
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+
 import ddf.minim.AudioInput;
 import ddf.minim.Minim;
 import processing.core.*;
-//import processing.core.PImage;
 
 public class FlopShout extends PApplet {
 
@@ -16,6 +18,7 @@ public class FlopShout extends PApplet {
 	float ypos = 200;
 	float b_height = 0;
 	public static int stage = 0;
+	public static int difficulty = 0;
 	
     public static void main(String[] args)
     {
@@ -27,7 +30,7 @@ public class FlopShout extends PApplet {
 		minum = new Minim(this);
 		menu = new Menu(this);
 		in = minum.getLineIn(Minim.MONO, width, 44100, 16);
-		img = loadImage("bird.png");
+		img = loadImage("potfinal.png");
 	}
 	
 	public void settings()
