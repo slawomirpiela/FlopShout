@@ -59,7 +59,6 @@ public void setup()
 			}
 		}
 		menu.draw();
-		
 		println(stage);
 	}
 	
