@@ -13,19 +13,23 @@ int v_value = 0;
 Minim minum;
 AudioInput in;
 
-PImage img;
+Bird bird;
+PImage birdImage;
 
 PImage col;
 Menu menu;
-float xpos = 200;
-float ypos = 200;
+float playerX = 200;
+float playerY = 200;
 float b_height = 0;
 public static int stage = 0;
 public static int difficulty = 0;
 float x1,y1,x2,y2;
 float gravity = (float) 0.05;
 float border = 50;
-	
+
+
+
+
 public static void main(String[] args)
 	{
 		PApplet.main("game.FlopShout");  
@@ -38,9 +42,11 @@ public void setup()
 		menu = new Menu(this);
 		in = minum.getLineIn(Minim.MONO, width, 44100, 16);
 		
-		img = loadImage("potfinal.png");
-		img.resize(35,35);
+		
+		bird = new Bird(200,200);
+		
 		col = loadImage("col.png");
+		
 	}
 	
 	public void settings()
@@ -57,17 +63,17 @@ public void setup()
 			{
 				if (frameCount % 60 == 0){
 					}
-					if(in.left.get(i)*height/2 > 0 && ypos > 0){
+					if(in.left.get(i)*height/2 > 0 && playerY > 0){
 						background(255);
-						ypos = ypos - in.left.get(i)/2;
-						ypos += gravity;
-						image(img, xpos, ypos);
-						if(ypos < 0)
+						playerY = playerY - in.left.get(i)/2;
+						playerY += gravity;
+						bird.display();
+						if(playerY < 0)
 						{
-							ypos = ypos + 2;
+							playerY = playerY + 2;
 							//println(((in.left.get(i)*50w) + (in.right.get(i)*50) / 2));
 						}
-						if(ypos > 800){
+						if(playerY > 800){
 							
 							background(255);
 							textAlign(CENTER);
@@ -75,6 +81,7 @@ public void setup()
 							fill(0);
 							text("Game Over", width/2, height/2);
 						}
+						
 					//println(in.mix.get(i));
 					//println(in.left.get(i));
 					}
