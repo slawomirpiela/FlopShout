@@ -37,7 +37,9 @@ public void setup()
 		minum = new Minim(this);
 		menu = new Menu(this);
 		in = minum.getLineIn(Minim.MONO, width, 44100, 16);
+		
 		img = loadImage("potfinal.png");
+		img.resize(35,35);
 		col = loadImage("col.png");
 	}
 	
