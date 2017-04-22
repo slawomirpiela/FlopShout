@@ -10,6 +10,7 @@ import processing.core.*;
 public class FlopShout extends PApplet {
 
 int v_value = 0;
+//MATAS IS A FAG
 Minim minum;
 AudioInput in;
 
