@@ -27,9 +27,6 @@ float x1,y1,x2,y2;
 float gravity = (float) 0.05;
 float border = 50;
 
-
-
-
 public static void main(String[] args)
 	{
 		PApplet.main("game.FlopShout");  
@@ -41,8 +38,6 @@ public void setup()
 		minum = new Minim(this);
 		menu = new Menu(this);
 		in = minum.getLineIn(Minim.MONO, width, 44100, 16);
-		
-		
 		bird = new Bird(200,200);
 		
 		col = loadImage("col.png");
