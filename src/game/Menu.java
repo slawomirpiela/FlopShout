@@ -6,6 +6,7 @@ public class Menu{
 	
 	PApplet parent;
 	PFont font;
+	boolean rectOver = false;
 	
 	
 	Menu(PApplet p) {
@@ -13,29 +14,46 @@ public class Menu{
 		font = parent.createFont("ffont.TTF", 38, true);
 	}
 	
+public boolean overRect(float x, float y, float width, float height)  {
+	  if (parent.mouseX >= x && parent.mouseX <= x+width && 
+			  parent.mouseY >= y && parent.mouseY <= y+height) {
+		    return true;
+		  } else {
+		    return false;
+		  }
+		}
+
+	
 public void draw() 
 {
 	float hwidth = parent.width/2;
 	float hheight = parent.height/2;
-	float menulist[] = {200,370,440,510,590};
+	int color;
+	float menulist[] = {200,350,440,510,590};
 	float menuele[] = {210,355,425,495,515};
 	if(FlopShout.stage == 0){
 		parent.background(255);
-		parent.fill(0);
+		if(rectOver == false){
+			color = 255;
+		} else {
+			color = 0;
+		}
+		parent.fill(color);
 		parent.textAlign(parent.CENTER);
 		parent.textFont(font);
 		for(int i = 1; i < 4; i ++)
 		{
-			float x1 = hwidth;
-			float y1 = menuele[i];
+			float x1 = hwidth - 160;
+			float y1 = menuele[i] - 25;
 			float x2 = 320;
 			float y2 = 50;
-			parent.rectMode(parent.CENTER);
+			parent.rectMode(parent.CORNER);
 			parent.fill(0,0,0,0);
 			parent.rect(x1,y1,x2,y2);
 			
-			if(parent.mouseX > x1 ){
-				
+			if(overRect(x1,y1,x2,y2)){
+				rectOver = true;
+				println(rectOver);
 			}
 			
 		}
@@ -76,6 +94,11 @@ public void draw()
 		parent.text("Options", parent.width/2, menulist[2]);
 		parent.text("Quit", parent.width/2, menulist[3]);
 	}
+}
+
+private void println(boolean rectOver2) {
+	// TODO Auto-generated method stub
+	
 }
 
 }
