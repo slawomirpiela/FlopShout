@@ -1,10 +1,24 @@
 package game;
 
 import processing.core.PApplet;
+import processing.core.PFont;
 
-public class Bird extends PApplet {
+public class Bird {
 	
-	public void setup(){
-
+	PApplet parent;
+	PFont font;
+	boolean rectOver = false;
+	float x1,y1,x2,y2;
+	
+	
+	Bird(PApplet p) {
+		parent = p;
 	}
+	
+	void draw(){
+		
+	}
+
+	
 }
+
