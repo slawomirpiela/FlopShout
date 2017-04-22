@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/ProcessingLib/core.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ProcessingLib/jl1.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ProcessingLib/jsminim.jar"/>
@@ -9,5 +10,35 @@
 	<classpathentry kind="lib" path="C:/Users/ProcessingLib/mp3spi1.9.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ProcessingLib/tritonus_aos.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ProcessingLib/tritonus_share.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/User/Desktop/processing-3.3/core/library/core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Documents/Processing/libraries/minim/library/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Documents/Processing/libraries/minim/library/jsminim.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Documents/Processing/libraries/minim/library/minim.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Documents/Processing/libraries/minim/library/mp3spi1.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Documents/Processing/libraries/minim/library/tritonus_aos.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Documents/Processing/libraries/minim/library/tritonus_share.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Slawek-Laptop/Documents/Processing/libraries/minim/library/minim.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/core.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/gluegen-rt-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/gluegen-rt-natives-linux-armv6hf.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/gluegen-rt-natives-linux-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/gluegen-rt-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/gluegen-rt-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/gluegen-rt-natives-windows-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/jogl-all.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/jogl-all-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/jogl-all-natives-linux-armv6hf.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/jogl-all-natives-linux-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/jogl-all-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/jogl-all-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Processing/core/library/jogl-all-natives-windows-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Slawek-Laptop/Documents/Processing/libraries/minim/library/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Slawek-Laptop/Documents/Processing/libraries/minim/library/jsminim.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Slawek-Laptop/Documents/Processing/libraries/minim/library/mp3spi1.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Slawek-Laptop/Documents/Processing/libraries/minim/library/tritonus_aos.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Slawek-Laptop/Documents/Processing/libraries/minim/library/tritonus_share.jar"/>
+>>>>>>> 12615f7d2ef91d6aebffeb67010502f5fdd91e9e
 	<classpathentry kind="output" path="bin"/>
 </classpath>
