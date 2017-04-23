@@ -52,7 +52,7 @@ public void draw()
 	
 	
 	if(FlopShout.stage == 0){
-		parent.background(color);
+		parent.background(255);
 		if(rectOver){
 			parent.fill(rectHighlight);
 		} else {

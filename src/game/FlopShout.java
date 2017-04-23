@@ -38,9 +38,13 @@ public void settings()
 	
 public void draw()
 	{
-		cols.display();
-		bird1.display();
+		//background(255);
 		menu.draw();
+		//background(255);
+		cols.display();
+
+		bird1.display();
+		
 		//println(stage);
 	}
 	
