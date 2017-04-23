@@ -28,7 +28,14 @@ public class FlopShout extends PApplet {
 		smooth();
 		bird1 = new Bird(this);
 		menu = new Menu(this);
-		cols = new Column(this, 0, 0);
+		for (int z = 1; z < 10; z++){
+			for(int i = 1; i < 10; i++){
+			Columns.add(new Column(this,x*20, y*30));
+			println(Columns.size());
+			}
+			//x=+50;
+			//cols = new Column(this, x, y);
+		}
 	}
 	
 	public void settings(){
@@ -39,7 +46,10 @@ public class FlopShout extends PApplet {
 		background(255);
 		menu.draw();
 		if(stage == 1){
-			cols.display();
+			for(Column columns : Columns ){
+				columns.display();	
+			}
+
 			bird1.display();
 		}
 		//println(stage);
