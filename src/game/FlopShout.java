@@ -9,6 +9,7 @@ public class FlopShout extends PApplet {
 //PImage col;
 Menu menu;
 Bird bird1;
+Column cols;
 
 //float b_height = 0;
 public static int stage = 0;
@@ -27,17 +28,17 @@ public void setup()
 		smooth();
 		bird1 = new Bird(this);
 		menu = new Menu(this);
-
-		//col = loadImage("col.png");
+		cols = new Column(this);
 	}
 	
-	public void settings()
+public void settings()
 	{
 		size(1000,800);
 	}
 	
-	public void draw()
+public void draw()
 	{
+		cols.display();
 		bird1.display();
 		menu.draw();
 		//println(stage);
