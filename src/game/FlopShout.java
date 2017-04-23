@@ -38,12 +38,12 @@ public void settings()
 	
 public void draw()
 	{
-		//background(255);
+		background(255);
 		menu.draw();
-		//background(255);
+		if(stage == 1){
 		cols.display();
-
 		bird1.display();
+		}
 		
 		//println(stage);
 	}
