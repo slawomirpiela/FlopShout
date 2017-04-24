@@ -45,7 +45,7 @@ public class FlopShout extends PApplet {
 	
 	public void settings(){
 		size(1000,800);
-	}
+	}//yo
 	
 	public void draw(){
 		background(255);
