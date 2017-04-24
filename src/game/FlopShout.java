@@ -32,7 +32,7 @@ public class FlopShout extends PApplet {
 		for (int z = 1; z < levelcolumns; z++){
 			xyz = random(-250,0);
 			www = 120+(200 *z);
-			Columns.add(new Column(this,col2, www, xyz, true ));
+			Columns.add(new Column(this,col2, www, xyz, false ));
 			end_of_col = xyz + 300;
 			Columns.add(new Column(this,col, 120+(200 * z), min_gap + end_of_col, false ));
 		}
@@ -51,8 +51,9 @@ public class FlopShout extends PApplet {
 			for(Column columns : Columns ){
 				columns.display();	
 				columns.move();
-				if(bird1.xpos + 35 == columns.column.x && bird1.ypos < columns.column.y ){
-					stage = 4;
+				if(bird1.xpos + 35 == columns.column.x && bird1.ypos == columns.column.y  ){
+					//&& bird1.xpos > columns.column.x + 30 && bird1.ypos < columns.column.y
+					bird1.ypos = 0;
 				}
 				
 			}
