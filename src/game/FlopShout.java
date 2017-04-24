@@ -11,7 +11,7 @@ public class FlopShout extends PApplet {
 	PImage col, col2;
 	public static int stage = 0;
 	public static int difficulty = 1;
-	float x,y, xyz, end_of_col, www;
+	float x,y, xyz, end_of_col, www, zzz, start_of_col, end_of_gap, end_of_bot_col;
 	float min_gap = 300 * difficulty;
 	boolean passed;
 	boolean rotated = false;
@@ -30,11 +30,18 @@ public class FlopShout extends PApplet {
 		col = loadImage( "col.png");
 		col2 = loadImage( "col2.png");
 		for (int z = 1; z < levelcolumns; z++){
-			xyz = random(-250,0);
 			www = 120+(200 *z);
-			Columns.add(new Column(this,col2, www, xyz, false ));
+			xyz = random(-250,0);
+			//constr Column(PApplet p, PImage img, float x, float y, boolean rotated, float c, float butt) {
 			end_of_col = xyz + 300;
-			Columns.add(new Column(this,col, 120+(200 * z), min_gap + end_of_col, false ));
+			//start_of_col = end_of_col + 300;
+			end_of_gap = end_of_col + min_gap;
+			Columns.add(new Column(this,col2, www, xyz, false, end_of_col, end_of_gap));
+			
+			zzz = 120+(200 * z);
+			//start_of_col = end_of_col + 300;
+			end_of_bot_col = end_of_gap + 300;
+			Columns.add(new Column(this,col,zzz, min_gap + end_of_col, false, end_of_gap, end_of_bot_col));
 		}
 	}
 	
@@ -45,17 +52,28 @@ public class FlopShout extends PApplet {
 	public void draw(){
 		background(255);
 		menu.draw();
-		println(second());
+		//println(second());
 		if(stage == 1){
 			bird1.display();
 			for(Column columns : Columns ){
 				columns.display();	
 				columns.move();
-				if(bird1.xpos + 35 > columns.column.x && rotated == false &&  bird1.ypos < columns.column.y - min_gap) {
-					stage = 4;
+			if(columns.column.x < 195 && columns.column.x > 260 ){
+				columns.rotated = true;
+				fill(0);
+				rect(10,10, 50,50);
+				println("k, bye then!");
+			}
+				if(bird1.xpos + bird1.img.width >= zzz && rotated == false &&  bird1.ypos > end_of_col 
+						&& bird1.ypos < min_gap + end_of_col) {
+					//stage = 4;
+					println("STAPH");
 				}
-				println(end_of_col);
-				println(min_gap+end_of_col);
+				println(columns.c); //y value of the start of the column - beginning of the gap
+				println(columns.butt); //y value of the end of the column - end of the gap 
+				//println(end_of_col);
+				//println(columns.column.x);
+				//println(min_gap+end_of_col);
 				
 			}
 			

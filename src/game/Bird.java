@@ -11,7 +11,7 @@ public class Bird {
 	AudioInput in;
 	
 	float xpos = 200;
-	float ypos = 355;
+	float ypos = 200;
 	float gravity = (float) 0.0005;
 	
 	Bird(PApplet p) {
@@ -29,7 +29,7 @@ public class Bird {
 			if (parent.frameCount % 20 == 0){
 				if(in.left.get(i)*parent.height/2 > 0 && ypos > 0){
 					//parent.background(255);
-					ypos = ypos - in.left.get(i)/2;
+					//ypos = ypos - in.left.get(i)/2;
 					if(ypos < 0){
 						ypos = ypos + 2;
 					}

@@ -9,8 +9,9 @@ public class Column {
 
 	boolean passed, rotated;
 	PVector column;
+	float z,c, butt;
 	
-	Column(PApplet p, PImage img, float x, float y, boolean rotated) {
+	Column(PApplet p, PImage img, float x, float y, boolean rotated, float c, float butt) {
 		column = new PVector(x,y);
 		//this.passed = false;
 		this.rotated = rotated;
@@ -18,6 +19,9 @@ public class Column {
 		this.column.x = x;
 		this.column.y = y;
 		this.img = img;
+		this.c = c;
+		this.butt = butt;
+		//this.c = c;
 	}
 
 public void display(){
@@ -27,8 +31,9 @@ public void display(){
 
 public void move(){
 	column.x = column.x - parent.second()/10;
+	c = column.y + 300; //y value of the start of the column
+	butt = c + 300; //y value of the end of the column
 }
-
 		
 }
 
