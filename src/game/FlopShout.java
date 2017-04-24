@@ -32,13 +32,11 @@ public class FlopShout extends PApplet {
 		menu = new Menu(this);
 		for (int z = 1; z < levelcolumns; z++){
 			//top ones
-			Columns.add(new Column(this,120+(200 *z), random(0,-250), rotated ));
-			rotated = true;
-		}
+			Columns.add(new Column(this,120+(200 *z), random(0,-250), true ));
+			}
 			for(int i = 1; i < levelcolumns; i++){
 				//bottom ones
-				Columns.add(new Column(this,120+(200 * i), random(600,900), rotated ));
-				rotated = false;
+				Columns.add(new Column(this,120+(200 * i), height/2, false ));
 			println(Columns.size());
 			}
 	}
@@ -52,17 +50,11 @@ public class FlopShout extends PApplet {
 		menu.draw();
 		if(stage == 1){
 			for(Column columns : Columns ){
-				//columns.torotate();
-				columns.display();	
-				
+				columns.torotate();
+				//columns.display();	
 			}
 			bird1.display();
-				
 		}
-			//Columns.get(<Column>1);
-			
-		
-		//println(stage);
 	}
 
 }

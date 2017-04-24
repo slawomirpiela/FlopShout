@@ -17,24 +17,26 @@ public class Column {
 		parent = p;
 		this.column.x = x;
 		this.column.y = y;
-		//display();
+		display();
 		//torotate();
 	}
 
 public void display(){
 	col = parent.loadImage("col.png");
-	torotate();
-	parent.image(col, column.x, column.y);
-	
 
+	//torotate();
+	
 }
 
 public void torotate(){
-	if(rotated = true){
+	if(rotated = false){
 		parent.pushMatrix();
 		parent.translate(column.x, column.y);
 		parent.rotate(parent.PI);
+		parent.image(col, column.x, column.y);
 		parent.popMatrix();
+	} else{
+		parent.image(col, column.x, column.y);
 	}
 }
 
