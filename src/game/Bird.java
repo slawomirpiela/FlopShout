@@ -35,7 +35,7 @@ public class Bird {
 					if(ypos < 0){
 						ypos = ypos + 2;
 					}
-					parent.println(in.left.get(i));
+					//parent.println(in.left.get(i));
 				}
 			}
 			if(ypos > 800){
