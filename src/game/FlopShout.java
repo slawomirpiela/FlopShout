@@ -51,19 +51,31 @@ public class FlopShout extends PApplet {
 			for(Column columns : Columns ){
 				columns.display();	
 				columns.move();
-				if(bird1.xpos + 35 == columns.column.x && bird1.ypos == columns.column.y  ){
-					//&& bird1.xpos > columns.column.x + 30 && bird1.ypos < columns.column.y
-					bird1.ypos = 0;
+				if(bird1.xpos + 35 > columns.column.x && rotated == false &&  bird1.ypos < columns.column.y - min_gap) {
+					stage = 4;
 				}
+				println(end_of_col);
+				println(min_gap+end_of_col);
 				
+			}
+			
+			//for(Column columns : Columns ){
+			//if(columns.column.x < 500 && columns.column.x > 1000 && columns.column.y < 100	){
+				
+				//rotated = true;
+				//fill(0);
+				//rect(10,10, 50,50);
+				//println("k, bye then!");
+			//}
+
 			}
 			//pushMatrix();
 			//translate(bird1.xpos, bird1.ypos);
 
 			//popMatrix();
-			println(bird1.xpos);
+			//println(bird1.xpos);
 			
-		}
+		
 	}
 
 }

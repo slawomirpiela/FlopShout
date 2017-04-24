@@ -11,7 +11,7 @@ public class Bird {
 	AudioInput in;
 	
 	float xpos = 200;
-	float ypos = 200;
+	float ypos = 355;
 	float gravity = (float) 0.0005;
 	
 	Bird(PApplet p) {

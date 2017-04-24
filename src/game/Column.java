@@ -22,10 +22,11 @@ public class Column {
 
 public void display(){
 	parent.image(img, column.x, column.y);
+	
 }
 
 public void move(){
-	column.x = column.x - parent.second()/5;
+	column.x = column.x - parent.second()/10;
 }
 
 		
