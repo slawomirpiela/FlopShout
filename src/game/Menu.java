@@ -59,7 +59,7 @@ public class Menu
 				parent.fill(rectColor);
 			}
 			parent.rectMode(parent.CORNER);
-			//parent.fill(0,0,0,0);
+			parent.fill(0,0,0,0);
 			parent.stroke(255);
 			parent.rect(x1,y1,x2,y2);
 			parent.fill(255);
