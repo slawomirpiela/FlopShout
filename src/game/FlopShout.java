@@ -30,12 +30,9 @@ public class FlopShout extends PApplet {
 		col = loadImage( "col.png");
 		col2 = loadImage( "col2.png");
 		for (int z = 1; z < levelcolumns; z++){
-			//top ones
-
 			xyz = random(-250,0);
 			www = 120+(200 *z);
-			Columns.add(new Column(this, col2, www, xyz, true ));
-			
+			Columns.add(new Column(this,col2, www, xyz, true ));
 			end_of_col = xyz + 300;
 			Columns.add(new Column(this,col, 120+(200 * z), min_gap + end_of_col, false ));
 		}
@@ -52,10 +49,18 @@ public class FlopShout extends PApplet {
 		if(stage == 1){
 			bird1.display();
 			for(Column columns : Columns ){
-			//	column.x = column.x + second();
 				columns.display();	
 				columns.move();
+				if(bird1.xpos + 35 == columns.column.x && bird1.ypos < columns.column.y ){
+					stage = 4;
+				}
+				
 			}
+			//pushMatrix();
+			//translate(bird1.xpos, bird1.ypos);
+
+			//popMatrix();
+			println(bird1.xpos);
 			
 		}
 	}

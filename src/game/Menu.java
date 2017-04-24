@@ -112,7 +112,6 @@ public class Menu
 	if(FlopShout.stage == 4){
 		parent.background(255);
 		parent.textAlign(parent.CENTER);
-		//textFont(font);
 		parent.fill(0);
 		parent.text("Game Over", parent.width/2, parent.height/2);
 		parent.text("Back to Menu", 30, 700);
