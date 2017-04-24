@@ -23,8 +23,6 @@ public class Bird {
 	public void display(){
 		img = parent.loadImage("potfinal.png");
 		img.resize(35,35);	
-		//parent.background(255);
-		//parent.stroke(255);
 		for(int i = 0; i < in.bufferSize() - 1; i++){
 			parent.image(img, xpos, ypos);
 			ypos += gravity;
@@ -42,6 +40,10 @@ public class Bird {
 				FlopShout.stage = 4;
 			}	
 		}
+	}
+	
+	public void collision(){
+		
 	}
 
 }

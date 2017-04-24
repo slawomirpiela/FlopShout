@@ -5,39 +5,23 @@ import processing.core.*;
 public class Column {
 	
 	PApplet parent;
-	PImage col;
+	PImage img;
+
 	boolean passed, rotated;
 	PVector column;
-	//float x,y;
 	
-	Column(PApplet p, float x, float y, boolean rotated) {
+	Column(PApplet p, PImage img, float x, float y, boolean rotated) {
 		column = new PVector(x,y);
-		this.passed = false;
+		//this.passed = false;
 		this.rotated = rotated;
 		parent = p;
 		this.column.x = x;
 		this.column.y = y;
-		display();
-		//torotate();
+		this.img = img;
 	}
 
 public void display(){
-	col = parent.loadImage("col.png");
-
-	//torotate();
-	
-}
-
-public void torotate(){
-	if(rotated = false){
-		parent.pushMatrix();
-		parent.translate(column.x, column.y);
-		parent.rotate(parent.PI);
-		parent.image(col, column.x, column.y);
-		parent.popMatrix();
-	} else{
-		parent.image(col, column.x, column.y);
-	}
+	parent.image(img, column.x, column.y);
 }
 
 		

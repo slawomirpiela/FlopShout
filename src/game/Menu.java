@@ -115,6 +115,10 @@ public class Menu
 		//textFont(font);
 		parent.fill(0);
 		parent.text("Game Over", parent.width/2, parent.height/2);
+		parent.text("Back to Menu", 30, 700);
+		parent.text("Restart", parent.width/2, parent.height/2 + 50);
+		parent.text("HighScore", parent.width/2, parent.height - parent.height/3);
+		parent.text("Quit", parent.width - parent.width/3, parent.height - parent.height/3);
 	}
 }
 

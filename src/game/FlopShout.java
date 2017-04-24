@@ -8,19 +8,17 @@ import processing.core.*;
 public class FlopShout extends PApplet {
 	Menu menu;
 	Bird bird1;
-	Column cols;
-
-	//float b_height = 0;
+	PImage col, col2;
 	public static int stage = 0;
-	public static int difficulty = 0;
-	float x1,y1,x2,y2;
-	float border = 50;
-	float x,y;
+	public static int difficulty = 1;
+	float x,y, xyz, end_of_col;
+	float min_gap = 300 * difficulty;
 	boolean passed;
 	boolean rotated = false;
 	ArrayList<Column> Columns = new ArrayList<Column>();
 	int level = 1;
 	int levelcolumns = 20;
+	float movement;
 	
 	public static void main(String[] args){
 		PApplet.main("game.FlopShout");  
@@ -30,15 +28,19 @@ public class FlopShout extends PApplet {
 		smooth();
 		bird1 = new Bird(this);
 		menu = new Menu(this);
+		col = loadImage( "col.png");
+		col2 = loadImage( "col2.png");
 		for (int z = 1; z < levelcolumns; z++){
 			//top ones
-			Columns.add(new Column(this,120+(200 *z), random(0,-250), true ));
-			}
-			for(int i = 1; i < levelcolumns; i++){
-				//bottom ones
-				Columns.add(new Column(this,120+(200 * i), height/2, false ));
+			//movement = frameCount + 20;
+			xyz = random(-250,0);
+			Columns.add(new Column(this, col2, 120+(200 *z) + movement, xyz, true ));
+			
+			end_of_col = xyz + 300;
+			Columns.add(new Column(this,col, 120+(200 * z), min_gap + end_of_col, false ));
+			
 			println(Columns.size());
-			}
+		}
 	}
 	
 	public void settings(){
@@ -50,8 +52,10 @@ public class FlopShout extends PApplet {
 		menu.draw();
 		if(stage == 1){
 			for(Column columns : Columns ){
-				columns.torotate();
-				//columns.display();	
+				//if(rotated == true){
+				//columns.torotate();
+				//}
+				columns.display();	
 			}
 			bird1.display();
 		}
