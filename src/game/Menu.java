@@ -52,7 +52,7 @@ public class Menu
 		//overRect(x1,y1,x2,y2);
 
 		if(FlopShout.stage == 0){
-			parent.background(255);
+			//parent.background(255);
 			if(rectOver){
 				parent.fill(rectHighlight);
 			} else {

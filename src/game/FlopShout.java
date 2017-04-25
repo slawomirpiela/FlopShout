@@ -8,41 +8,55 @@ import processing.core.*;
 public class FlopShout extends PApplet {
 	Menu menu;
 	Bird bird1;
-	PImage col, col2;
+	PImage col, col2, img;
+	PImage bgImg;
 	public static int stage = 0;
 	public static int difficulty = 1;
-	float x,y, xyz, end_of_col, www, zzz, start_of_col, end_of_gap, end_of_bot_col;
-	float min_gap = 300 * difficulty;
-	boolean passed;
-	boolean rotated = false;
-	ArrayList<Column> Columns = new ArrayList<Column>();
+	float y, xyz, end_of_col, start_of_col, end_of_gap, end_of_bot_col;
+	float xpos_top_cols, ypos_top_cols, xpos_bot_cols, ypos_bot_cols;
+	float min_gap = 400 * difficulty;
+	float x = -200;
+	float velocity = 1;
+	float birdx, birdy;
+	int score = 0;
+	//boolean passed;
+	//boolean rotated = false;
+	//ArrayList<Column> Columns = new ArrayList<Column>();
 	int level = 1;
-	int levelcolumns = 1000;
+	int levelcolumns = 50;
+	int[] colxpos = new int[2];
+	int[] colypos= new int[2];
+
 	
 	public static void main(String[] args){
 		PApplet.main("game.FlopShout");  
 	}
     
 	public void setup(){
-		smooth();
-		bird1 = new Bird(this);
-		menu = new Menu(this);
+		//
+		colxpos[0] = 600;
+		colypos[0] = 0;
+		//colxpos[1] = 800;
+		//colypos[1] = 300;
+		bgImg = loadImage("bg.jpg");
 		col = loadImage( "col.png");
 		col2 = loadImage( "col2.png");
-		for (int z = 1; z < levelcolumns; z++){
-			www = 120+(200 *z);
-			xyz = random(-250,0);
-			//constr Column(PApplet p, PImage img, float x, float y, boolean rotated, float c, float butt) {
-			end_of_col = xyz + 300;
-			//start_of_col = end_of_col + 300;
-			end_of_gap = end_of_col + min_gap;
-			Columns.add(new Column(this,col2, www, xyz, false, end_of_col, end_of_gap));
-			
-			zzz = 120+(200 * z);
-			//start_of_col = end_of_col + 300;
-			end_of_bot_col = end_of_gap + 300;
-			Columns.add(new Column(this,col,zzz, min_gap + end_of_col, false, end_of_gap, end_of_bot_col));
-		}
+		bird1 = new Bird(this, img, birdx, height/2, birdy);
+		menu = new Menu(this);
+		
+		//for (int z = 1; z < levelcolumns; z++){
+			//top columns
+		//	xpos_top_cols = 120+(200 *z);
+		//	ypos_top_cols = random(-250,0);
+		//	end_of_col = xyz + 300;
+		//	end_of_gap = end_of_col + min_gap;
+		//	Columns.add(new Column(this,col2, xpos_top_cols, ypos_top_cols, false, true));		
+		//	xpos_bot_cols = 120+(200 * z);
+		//	end_of_bot_col = end_of_gap + 300;
+		//	ypos_bot_cols = min_gap + end_of_col;
+		//	Columns.add(new Column(this,col,xpos_bot_cols,ypos_bot_cols, true, true));
+		//}
+		
 	}
 	
 	public void settings(){
@@ -50,50 +64,39 @@ public class FlopShout extends PApplet {
 	}
 	
 	public void draw(){
-		background(255);
+
+		if(stage == 0){
+
 		menu.draw();
+		}
 		//println(second());
 		if(stage == 1){
+			//background(255);
+			imageMode(CORNER);
+			image(bgImg, x, 0);
+			image(bgImg, x + bgImg.width, birdy);
 			bird1.display();
-			for(Column columns : Columns ){
-				columns.display();	
-				columns.move();
-			if(columns.column.x < 195 && columns.column.x > 260 ){
-				columns.rotated = true;
-				fill(0);
-				rect(10,10, 50,50);
-				println("k, bye then!");
-			}
-				if(bird1.xpos + bird1.img.width >= zzz && rotated == false &&  bird1.ypos > end_of_col 
-						&& bird1.ypos < min_gap + end_of_col) {
-					//stage = 4;
-					println("STAPH");
+			x -= 6;
+			if(x == -800) {
+				x = 0;}
+			for(int i = 0; i < 2; i++){
+				imageMode(CENTER);
+				image(col2, colxpos[i], colypos[i] - (col2.height/2+100));
+				//bot one
+				image(col, colxpos[i], colypos[i] + (col.height/2+100));
+				//
+				if(colxpos[i] < -20){
+					colypos[i] = (int) random(-250, 300);
+					colxpos[i] = width;
 				}
-				println(columns.c); //y value of the start of the column - beginning of the gap
-				println(columns.butt); //y value of the end of the column - end of the gap 
-				//println(end_of_col);
-				//println(columns.column.x);
-				//println(min_gap+end_of_col);
-				
+				if (colxpos[i] == width/2){
+					score++;
+					println(score);
+				}
+				colxpos[i] -= 6;
 			}
+		}
 			
-			//for(Column columns : Columns ){
-			//if(columns.column.x < 500 && columns.column.x > 1000 && columns.column.y < 100	){
-				
-				//rotated = true;
-				//fill(0);
-				//rect(10,10, 50,50);
-				//println("k, bye then!");
-			//}
-
-			}
-			//pushMatrix();
-			//translate(bird1.xpos, bird1.ypos);
-
-			//popMatrix();
-			//println(bird1.xpos);
-			
-		
 	}
-
+	
 }

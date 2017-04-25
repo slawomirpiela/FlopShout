@@ -6,41 +6,50 @@ import processing.core.*;
 
 public class Bird {
 	PApplet parent;
-	PImage img;
+	PImage heroImg;
 	Minim minum;
 	AudioInput in;
 	
-	float xpos = 200;
-	float ypos = 200;
+	float xpos = 150;
+	float ypos = 0;
+	float velocity = 1;
 	float gravity = (float) 0.0005;
 	
-	Bird(PApplet p) {
+	Bird(PApplet p, PImage img, float xpos, float ypos, float vel) {
+		
 		parent = p;
 		minum = new Minim(p);
 		in = minum.getLineIn(Minim.MONO, parent.width, 44100, 16);
+		
+		this.heroImg = img;
+		this.xpos = xpos;
+		this.ypos = ypos;
+		this.velocity = vel;
 	}
 
 	public void display(){
-		img = parent.loadImage("potfinal.png");
-		img.resize(35,35);	
-		for(int i = 0; i < in.bufferSize() - 1; i++){
-			parent.image(img, xpos, ypos);
-			ypos += gravity;
-			if (parent.frameCount % 20 == 0){
-				if(in.left.get(i)*parent.height/2 > 0 && ypos > 0){
-					//parent.background(255);
-					//ypos = ypos - in.left.get(i)/2;
-					if(ypos < 0){
-						ypos = ypos + 2;
-					}
-					//parent.println(in.left.get(i));
+		heroImg = parent.loadImage("potfinal.png");
+		//
+			parent.image(heroImg, xpos, ypos);
+			velocity += 0.5;
+			ypos += velocity;
+			for(int i = 0; i < in.bufferSize() - 1; i++){
+				if(in.left.get(i)*parent.height/2 > 70
+						){
+					velocity =- 5;
+					//velocity = -in.left.get(i)/2;
+					parent.println(in.left.get(i)*parent.height/2);
+				}
+				if(ypos < 0){
+					ypos = ypos + 2;
+					
 				}
 			}
-			if(ypos > 800){
-				FlopShout.stage = 4;
-			}	
+			//if(ypos > 800){
+			//	FlopShout.stage = 4;
+			//}	
 		}
-	}
+	//}
 	
 	public void collision(){
 		
