@@ -3,38 +3,35 @@ package game;
 import processing.core.*;
 
 public class Column {
-	
 	PApplet parent;
-	PImage col;
-	PImage col2;
-
-	PVector column;
-	float z,c, butt;
+	PImage topcol, botcol;
 	
-	Column(PApplet p, PImage img, float x, float y, boolean rotated, boolean hittable) {
-		column = new PVector(x,y);
-		col = parent.loadImage("col.png");
-		col2 = parent.loadImage("col2.png");
-
+	
+	int col_xpos[]= new int[2];
+	int col_ypos[]= new int[2];
+	
+	Column(PApplet p, int col_xpos, int col_ypos){
 		parent = p;
-		this.column.x = x;
-		this.column.y = y;
-		//this.img = img;
-		this.c = c;
-		this.butt = butt;
-		//this.c = c;
 	}
-
+	
+	public void draw(){
+		topcol = parent.loadImage("col.png");
+		botcol = parent.loadImage("col2.png");
+	}
+	
 public void display(){
-	parent.image(col, column.x, column.y);
-}
-
-public void move(){
-	column.x = column.x - parent.second()/10;
-	c = column.y + 300; //y value of the start of the column
-	butt = c + 300; //y value of the end of the column
-}
 		
+		
+		for(int i = 0; i < 2; i++){
+		parent.image(topcol, col_xpos[i], col_ypos[i] - (topcol.height/2 + 100));
+		parent.image(botcol, col_xpos[i], col_ypos[i] + (botcol.height/2 + 100));
+		if(col_ypos[i] < 0){
+			col_ypos[i] = (int) parent.random(200, parent.height-200);
+			col_xpos[i] = parent.width;
+		}
+		
+		//parent.imageMode(CENTER); fix
+		
+		}
+	}
 }
-
-

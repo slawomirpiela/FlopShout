@@ -33,22 +33,20 @@ public class Bird {
 			parent.image(heroImg, xpos, ypos);
 			velocity += 0.5;
 			ypos += velocity;
-			for(int i = 0; i < in.bufferSize() - 1; i++){
-				if(in.left.get(i)*parent.height/2 > 70
-						){
-					velocity =- 5;
-					//velocity = -in.left.get(i)/2;
-					parent.println(in.left.get(i)*parent.height/2);
-				}
-				if(ypos < 0){
-					ypos = ypos + 2;
-					
-				}
-			}
-			//if(ypos > 800){
-			//	FlopShout.stage = 4;
-			//}	
 		}
+	
+	//public void move(){
+	//	for(int i = 0; i < in.bufferSize() - 1; i++){
+	//		if(in.left.get(i)*parent.height/2 > 70){
+	//			velocity =- 5;
+	//			//velocity = -in.left.get(i)/2;
+	//			parent.println(in.left.get(i)*parent.height/2);
+	//		}
+	//		if(ypos < 0){
+	//			ypos = ypos + 2;
+	//			
+	//		}
+	//	}
 	//}
 	
 	public void collision(){
