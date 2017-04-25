@@ -34,16 +34,16 @@ public class Bird {
 			velocity += 0.5;
 			ypos += velocity;
 			for(int i = 0; i < in.bufferSize() - 1; i++){
-				if(in.left.get(i)*parent.height/2 > 70
+				if(in.left.get(i)*parent.height/2 > 10
 						){
 					velocity =- 5;
 					//velocity = -in.left.get(i)/2;
-					parent.println(in.left.get(i)*parent.height/2);
+				//	parent.println(in.left.get(i)*parent.height/2);
 				}
-				if(ypos < 0){
-					ypos = ypos + 2;
-					
-				}
+//				if(ypos < 0){
+//					ypos = ypos + 2;
+//					
+//				}
 			}
 			//if(ypos > 800){
 			//	FlopShout.stage = 4;
