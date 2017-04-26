@@ -6,91 +6,78 @@ public class Menu
 {
 	PApplet parent;
 	PFont font;
-	boolean rectOver = false;
 	float x1,y1,x2,y2;
-	float rectColor = 0;
-	float rectHighlight = 51;
 	
 	Menu(PApplet p) 
 	{
 		parent = p;
 		font = parent.createFont("ffont.TTF", 38, true);
 	}
-	
-	boolean overRect(float x, float y, float width, float height)  
-	{
-		if (parent.mouseX >= x && parent.mouseX <= x+width && parent.mouseY >= y && parent.mouseY <= y+height)
-		{
-			return true;
-		} else {
-		    return false;
-			}
-	}
-
-	public void update(int x, int y){
-		if( overRect(x1,y1,x2,y2)) 
-		{
-			rectOver = true;
-		} else {
-			rectOver = false;
-			}
-	}
-
-	public void mousePressed(){
-		if(rectOver){
-			rectColor = 255;
-		}
-	}
 
 	public void draw(){
 		float hwidth = parent.width/2;
 		float hheight = parent.height/2;
-		int color = 255;
 		float menulist[] = {200,350,440,510,590};
 		float menuele[] = {210,355,425,495,515};
-	
-		//overRect(x1,y1,x2,y2);
-
+		//if the user is in the menu
 		if(FlopShout.stage == 0){
-			//parent.background(255);
-			if(rectOver){
-				parent.fill(rectHighlight);
-			} else {
-				parent.fill(rectColor);
-			}
-			parent.rectMode(parent.CORNER);
-			parent.fill(0,0,0,0);
+			//setting for the rectangles
 			parent.stroke(255);
-			parent.rect(x1,y1,x2,y2);
+			
+			//text that appears when user enters the menu
 			parent.fill(255);
 			parent.textAlign(parent.CENTER);
 			parent.textFont(font);
-			
-			for(int i = 1; i < 4; i ++){
-				float x1 = hwidth - 160;
-				float y1 = menuele[i] - 25;
-				float x2 = 320;
-				float y2 = 50;
-			}
-			parent.fill(0);
 			parent.text("FlopShout", hwidth, menuele[0] + 15);
 			parent.text("Start Game", hwidth,menuele[1] + 15);
 			parent.text("Options", hwidth, menuele[2] + 15);
 			parent.text("Quit", hwidth, menuele[3] + 15);
-			if(parent.mouseX > 420 && parent.mouseX < 600){
+			parent.fill(0,0,0,0);
 			
-		}
-		if(parent.mousePressed == true && parent.mouseX > 420 && parent.mouseX < 600 && parent.mouseY > 330 && parent.mouseY < 370 ){
-			FlopShout.stage = 1;
-		}
-		if(parent.mousePressed == true && parent.mouseX > 420 && parent.mouseX < 600 && parent.mouseY > 370 && parent.mouseY < 410 ){
-			FlopShout.stage = 2;
-		}
-		if(parent.mousePressed == true && parent.mouseX > 420 && parent.mouseX < 600 && parent.mouseY > 410 && parent.mouseY < 490 ){
-			FlopShout.stage = 3;
-			System.exit(0);
-		}
-	}
+			//start button
+		if(parent.mouseX > hwidth - 115 && parent.mouseX < hwidth + 115 && parent.mouseY > 325 && parent.mouseY < 385 ){
+			parent.fill(255,0,0);
+			parent.text("Start Game", hwidth,menuele[1] + 15);
+			if(parent.mousePressed){
+				FlopShout.stage = 1;
+				}
+			}
+		else{
+			parent.fill(0,0,0,0);
+			}
+		
+		//options button
+		if(parent.mouseX > hwidth - 115 && parent.mouseX < hwidth + 115 && parent.mouseY > 395 && parent.mouseY < 450 ){
+			//FlopShout.stage = 2;
+			parent.fill(255,0,0);
+			parent.text("Options", hwidth, menuele[2] + 15);
+			if(parent.mousePressed){
+				FlopShout.stage = 2;
+				}
+			}
+		else{
+			parent.fill(0,0,0,0);
+			}
+		
+		//quit button
+		if(parent.mouseX > hwidth - 80 && parent.mouseX < hwidth + 80 && parent.mouseY > 465 && parent.mouseY < 515 ){
+			parent.fill(255,0,0);
+			parent.text("Quit", hwidth, menuele[3] + 15);
+			if(parent.mousePressed){
+				FlopShout.stage = 3;
+				System.exit(0);
+				}
+			}
+		else{
+			parent.fill(0,0,0,0);
+			}
+		parent.fill(0,0,0,0);
+		parent.rect(hwidth - 115, 325, 230, 60);
+		parent.rect(hwidth - 115, 395, 230, 60);
+		parent.rect(hwidth - 115, 465, 230, 60);
+		} // end of - if stage = 0 statement
+
+		
 	if(FlopShout.stage == 2){
 		parent.background(255);
 		parent.fill(0);
@@ -120,11 +107,6 @@ public class Menu
 		parent.text("Quit", parent.width - parent.width/3, parent.height - parent.height/3);
 	}
 }
-
-//private void println(boolean rectOver2) {
-	// TODO Auto-generated method stub
 	
 }
-
-//}
 

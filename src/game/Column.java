@@ -5,12 +5,13 @@ import processing.core.*;
 public class Column {
 	PApplet parent;
 	PImage topcol, botcol;
+	int i = 0;
 	
 	
 	float col_xpos[]= new float[2];
 	float col_ypos[]= new float[2];
 	
-	Column(PApplet p, float col_xpos, float col_ypos){
+	Column(PApplet p){
 		parent = p;
 	}
 	
@@ -22,16 +23,22 @@ public class Column {
 public void display(){
 		
 	parent.imageMode(parent.CENTER);
-	for(int i = 0; i < 2; i++){
+
 		parent.image(topcol, col_xpos[i], col_ypos[i] - (topcol.height/2 + 100));
 		parent.image(botcol, col_xpos[i], col_ypos[i] + (botcol.height/2 + 100));
-		if(col_ypos[i] < 0){
+		if(col_ypos[i] < -25){
 			col_ypos[i] = parent.random(200, parent.height-200);
 			col_xpos[i] = parent.width;
 		}
 		
 		
-		}
-		
+	//imageMode(CENTER);
+	//image(columns.topcol, columns.col_xpos[i], columns.col_ypos[i] - (columns.topcol.height/2 + 100));
+	//image(columns.botcol, columns.col_xpos[i], columns.col_ypos[i] + (columns.botcol.height/2 + 100));
+	//if(columns.col_xpos[i] < -25) {
+	//	columns.col_ypos[i] = (int) random(200, height-200);
+	//	columns.col_xpos[i] = width + 25;
+	//}
+	
 	}
 }

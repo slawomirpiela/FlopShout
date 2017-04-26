@@ -32,7 +32,7 @@ public class FlopShout extends PApplet {
 		x = 0;
 		y = 0;
 		menu = new Menu(this);
-		columns = new Column(this, x, y);
+		columns = new Column(this);
 		bird = new Bird(this); //need to implement it
 		}
 	
@@ -41,45 +41,39 @@ public class FlopShout extends PApplet {
 		}
 
 	public void draw() { 
-		if(stage == 0){
-			background(0);
+		menu.draw();
+		if(stage == 1){
+			background(255);
 			columns.draw();
 			//bird.display(); //need to implement it
 			//bird.move(); //need to implement it
 			bird.display();
 			for(int i = 0; i < 2; i++){
-				imageMode(CENTER);
-				image(columns.topcol, columns.col_xpos[i], columns.col_ypos[i] - (columns.topcol.height/2 + 100));
-				image(columns.botcol, columns.col_xpos[i], columns.col_ypos[i] + (columns.botcol.height/2 + 100));
-				if(columns.col_xpos[i] < -25) {
-					columns.col_ypos[i] = (int) random(200, height-200);
-					columns.col_xpos[i] = width + 25;
-				}
+				columns.display();
 				if(columns.col_xpos[i] == width/2) 
 					highscore = max(++score, highscore);
 				
 				if (bird.b_ypos > height || bird.b_ypos < 0 || (abs(width/2 - columns.col_xpos[i]) < 25 && abs(bird.b_ypos - columns.col_ypos[i]) > 100))
-					stage = 1;
+					stage = 3;
 					columns.col_xpos[i] -= 6;
 				}
-			//image(bird.heroImg, bird.b_xpos, bird.b_ypos);
 			text(""+score, width/2 - 15, 700);
 		}
-		else {
+		if(stage == 3) {
 			background(0);
 			text("Game OVER", width/2, height/2);
 		}
 
-		if (mousePressed) { 
-			velocity = -17;
-			if(stage == 1) {
-				columns.col_xpos[0] = 600;
-				columns.col_ypos[0] = bird.b_ypos = height/2;
-				columns.col_xpos[1] = 900;
-				columns.col_ypos[0] = 600;
-				stage = score = 0;
-			}
-		}
+		//if (mousePressed) { 
+		//	velocity = -17;
+		//	if(stage == 1) {
+		//		columns.col_xpos[0] = 600;
+		//		columns.col_ypos[0] = bird.b_ypos = height/2;
+		//		columns.col_xpos[1] = 900;
+		//		columns.col_ypos[0] = 600;
+		//		stage = score = 0;
+		//	}
+		//}
 		
 	}
 		
