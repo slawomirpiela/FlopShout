@@ -10,31 +10,25 @@ public class Bird {
 	Minim minum;
 	AudioInput in;
 	
-	float xpos = 150;
-	float ypos = 0;
-	float velocity = 1;
-	float gravity = (float) 0.0005;
+	float b_xpos,b_ypos = 0;
+	//float velocity = 1;
+	//float gravity = (float) 0.0005;
 	
-	Bird(PApplet p, PImage img, float xpos, float ypos, float vel) {
-		
+	Bird(PApplet p) {		
 		parent = p;
 		minum = new Minim(p);
 		in = minum.getLineIn(Minim.MONO, parent.width, 44100, 16);
-		
-		this.heroImg = img;
-		this.xpos = xpos;
-		this.ypos = ypos;
-		this.velocity = vel;
 	}
 
 	public void display(){
 		heroImg = parent.loadImage("potfinal.png");
-		//
-			parent.image(heroImg, xpos, ypos);
-			velocity += 0.5;
-			ypos += velocity;
+			b_xpos = parent.width/2;
+			parent.image(heroImg, b_xpos, b_ypos);
+			FlopShout.velocity += 1;
+			b_ypos += FlopShout.velocity;
+			//velocity += 0.5;
+			//ypos += velocity;
 		}
-	
 	//public void move(){
 	//	for(int i = 0; i < in.bufferSize() - 1; i++){
 	//		if(in.left.get(i)*parent.height/2 > 70){
