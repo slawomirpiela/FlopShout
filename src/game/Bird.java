@@ -23,6 +23,7 @@ public class Bird {
 	public void display(){
 		heroImg = parent.loadImage("potfinal.png");
 			b_xpos = parent.width/2;
+			//parent.tint(255, 126);
 			parent.image(heroImg, b_xpos, b_ypos);
 			FlopShout.velocity += 1;
 			b_ypos += FlopShout.velocity;
