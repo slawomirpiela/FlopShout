@@ -121,10 +121,10 @@ public class Menu
 	}
 }
 
-private void println(boolean rectOver2) {
+//private void println(boolean rectOver2) {
 	// TODO Auto-generated method stub
 	
 }
 
-}
+//}
 
