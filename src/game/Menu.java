@@ -14,11 +14,12 @@ public class Menu
 		font = parent.createFont("ffont.TTF", 38, true);
 	}
 
-	public void draw(){
+	public void drawMainMenu(){
 		float hwidth = parent.width/2;
 		float hheight = parent.height/2;
 		float menulist[] = {200,350,440,510,590};
 		float menuele[] = {210,355,425,495,515};
+		
 		//if the user is in the menu
 		if(FlopShout.stage == 0){
 			//setting for the rectangles
@@ -71,6 +72,7 @@ public class Menu
 		else{
 			parent.fill(0,0,0,0);
 			}
+		//rectangles that will appear if the mouse button isn't over any of the buttons
 		parent.fill(0,0,0,0);
 		parent.rect(hwidth - 115, 325, 230, 60);
 		parent.rect(hwidth - 115, 395, 230, 60);
@@ -96,17 +98,31 @@ public class Menu
 		parent.text("Options", parent.width/2, menulist[2]);
 		parent.text("Quit", parent.width/2, menulist[3]);
 	}
+	
+	//Game over view
 	if(FlopShout.stage == 4){
 		parent.background(255);
 		parent.textAlign(parent.CENTER);
 		parent.fill(0);
-		parent.text("Game Over", parent.width/2, parent.height/2);
-		parent.text("Back to Menu", 30, 700);
-		parent.text("Restart", parent.width/2, parent.height/2 + 50);
-		parent.text("HighScore", parent.width/2, parent.height - parent.height/3);
-		parent.text("Quit", parent.width - parent.width/3, parent.height - parent.height/3);
+		parent.text("GAME OVER", hwidth, menuele[0] + 15);
+		parent.text(" Your score was " + (FlopShout.score), hwidth,menuele[1] + 15);
+		parent.text("HighScore = " +FlopShout.highscore, hwidth,menuele[2] + 15);
+		parent.text("Back to the menu", hwidth, parent.height - 170);
+		parent.text("Restart", 200, parent.height - 100);
+		parent.text("Quit", parent.width - 200, parent.height - 100);
+		
+		if(parent.mouseX > hwidth + 40 && parent.mouseX < hwidth + 160 && parent.mouseY > parent.height - 145 && parent.mouseY < parent.height - 90 ){
+			parent.fill(255,0,0);
+			parent.text("Quit", parent.width - 200, parent.height - 100);
+			if(parent.mousePressed){
+				FlopShout.stage = 3;
+				System.exit(0);
+				}
+			}
+		else{
+			parent.fill(0,0,0,0);
+			}
 	}
 }
 	
 }
-

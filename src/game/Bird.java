@@ -26,26 +26,7 @@ public class Bird {
 			parent.image(heroImg, b_xpos, b_ypos);
 			FlopShout.velocity += 1;
 			b_ypos += FlopShout.velocity;
-			//velocity += 0.5;
-			//ypos += velocity;
 		}
-	//public void move(){
-	//	for(int i = 0; i < in.bufferSize() - 1; i++){
-	//		if(in.left.get(i)*parent.height/2 > 70){
-	//			velocity =- 5;
-	//			//velocity = -in.left.get(i)/2;
-	//			parent.println(in.left.get(i)*parent.height/2);
-	//		}
-	//		if(ypos < 0){
-	//			ypos = ypos + 2;
-	//			
-	//		}
-	//	}
-	//}
-	
-	public void collision(){
-		
-	}
 
 }
 
