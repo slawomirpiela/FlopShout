@@ -9,6 +9,6 @@
 	<classpathentry kind="lib" path="C:/Users/ProcessingLib/mp3spi1.9.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ProcessingLib/tritonus_aos.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ProcessingLib/tritonus_share.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ProcessingLib/controlP5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/User/Documents/Processing/libraries/controlP5/library/controlP5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

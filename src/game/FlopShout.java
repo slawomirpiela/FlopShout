@@ -2,7 +2,7 @@ package game;
 
 import processing.core.*;
 import controlP5.*;
-
+import controlP5.*;
 public class FlopShout extends PApplet {
 
 	PImage bgImg;
@@ -16,7 +16,7 @@ public class FlopShout extends PApplet {
 	Bird bird; 
 	Column columns;
 	boolean ez_mode = false; //ez mode to be changed from true = false in the menu
-	//ControlP5 cp5; //possibly will be implemented
+	GUI gui; //possibly will be implemented
 	
 	public static void main(String[] args){
 		PApplet.main("game.FlopShout");  
@@ -30,6 +30,7 @@ public class FlopShout extends PApplet {
 		menu = new Menu(this); //to be implemented / replaced by P5Control
 		columns = new Column(this);
 		bird = new Bird(this);
+		gui = new GUI(this);
 		//cp5 = new ControlP5(this);
 		//cp5.addButton("Start Game").setValue(0).setPosition((float)(width*0.25),(float)(height*0.4625)).setSize(230,60);
 		}
@@ -101,6 +102,7 @@ public class FlopShout extends PApplet {
 				columns.col_ypos[1] = 600;
 				stage = 1;
 				score = 1;
+				gui.b.setVisible(false);
 			}
 			if(stage == 0 && ez_mode == true) {
 				bird.b_ypos = 200;
@@ -110,15 +112,11 @@ public class FlopShout extends PApplet {
 				columns.col_ypos[1] = height;
 				stage = 1;
 				score = 1;
+				gui.b.setVisible(false);
 			}
 		}
 		//menu.drawMainMenu();
+		gui.drawGUIMenu();	
 		columns.draw();
-		
-		
-		
 	}
-	
-
-
 }
