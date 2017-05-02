@@ -95,13 +95,13 @@ public class FlopShout extends PApplet {
 
 		if (mousePressed) { 
 			velocity = -12;
-			if(stage == 0 && ez_mode == false) {
+			if(stage == 0 && ez_mode == false){
 				columns.col_xpos[0] = 600;
 				columns.col_ypos[0] = bird.b_ypos = height/2;
 				columns.col_xpos[1] = 900;
 				columns.col_ypos[1] = 600;
-				stage = 1;
 				score = 1;
+				stage = 1;
 				gui.b.setVisible(false);
 			}
 			if(stage == 0 && ez_mode == true) {

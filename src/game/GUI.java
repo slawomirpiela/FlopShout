@@ -7,6 +7,7 @@ public class GUI {
 		PApplet parent;
 		Button b;
 		
+		
 		GUI(PApplet p) {
 			parent = p;
 			cp5 = new ControlP5(p);
@@ -18,7 +19,7 @@ public void drawGUIMenu(){
 	
 		Button button = cp5.get(Button.class, "Start");
 	}
-}
+
 
 //public void Button(int value){
 //	FlopShout.println("Button pressed");
@@ -28,14 +29,17 @@ public void drawGUIMenu(){
 //	}
 //	}
 
-//public void controlEvent(ControlEvent theEvent){
-//	if(theEvent.isController()){
-//		FlopShout.println("got a control event from controller with id "+theEvent.getController().getId());
-//	}
-//	if(theEvent.getName()=="Start"){
-//		cp5.getController("Start")
-//		.setVisible(false);
-//	}
+public void controlEvent(ControlEvent theEvent){
+	if(theEvent.isController()){
+		FlopShout.println("got a control event from controller with id "+theEvent.getController().getId());
+		}
+	}
+public void click(){
+	if(parent.mousePressed == true){
+		FlopShout.stage = 1;
+	}
+}
+}
 //		
 //}
 //}
