@@ -12,7 +12,8 @@ Our initial goal for this game was to make a game that was voice controlled. The
 - Use of static variables
 - Humour! (Come on a flying potato? That's hilarious!)
 
-# Pictures and development progress of the design (links only as the images are too big)
+# Pictures and development progress of the design 
+  (links only as the images are too big)
 - Early picture of the hero flying potato in development 
   http://imgur.com/HDGupxL
 - Play button that was going to be used but then scrapped, because it didn't fit the theme 
