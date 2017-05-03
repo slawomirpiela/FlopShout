@@ -5,13 +5,18 @@ import processing.core.PApplet;
 public class GUI {
 		ControlP5 cp5;
 		PApplet parent;
-		Button b;
-		
+		Button s;
+		Button op;
+		Button high;
+		Button ex;
 		
 		GUI(PApplet p) {
 			parent = p;
 			cp5 = new ControlP5(p);
-			b = cp5.addButton("Start").setValue(1).setPosition(parent.width/2, parent.height/2).setSize(200,20).activateBy(parent.mouseButton);
+			s = cp5.addButton("Start Game").setValue(0).setPosition((float)(parent.width*0.25),(float)(parent.height*0.4625)).setSize(230,60).activateBy(parent.mouseButton);
+			op = cp5.addButton("Options").setValue(0).setPosition((float)(parent.width*0.25),(float)(parent.height*0.5625)).setSize(230,60).activateBy(parent.mouseButton);
+			high = cp5.addButton("HighScore").setValue(0).setPosition((float)(parent.width*0.25),(float)(parent.height*0.6625)).setSize(230,60).activateBy(parent.mouseButton);
+			ex = cp5.addButton("Exit").setValue(0).setPosition((float)(parent.width*0.25),(float)(parent.height*0.7625)).setSize(230,60).activateBy(parent.mouseButton);
 		}
 		
 		

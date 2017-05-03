@@ -93,7 +93,7 @@ public class FlopShout extends PApplet {
 			text(""+ (score), width/2 - 15, 700);
 		}
 
-		if (gui.b.isMousePressed()) { 
+		if (gui.s.isMousePressed()) { 
 			//velocity = -12;
 			if(stage == 0 && ez_mode == false){
 				columns.col_xpos[0] = 600;
@@ -102,7 +102,9 @@ public class FlopShout extends PApplet {
 				columns.col_ypos[1] = 600;
 				score = 1;
 				stage = 1;
-				gui.b.setVisible(false);
+				
+				gui.s.setVisible(false);
+				gui.op.setVisible(false);
 			}
 			if(stage == 0 && ez_mode == true) {
 				bird.b_ypos = 200;
@@ -112,8 +114,26 @@ public class FlopShout extends PApplet {
 				columns.col_ypos[1] = height;
 				stage = 1;
 				score = 1;
-				gui.b.setVisible(false);
+				
+				gui.s.setVisible(false);
+				gui.op.setVisible(false);
 			}
+		}
+		if(gui.op.isMousePressed()){
+			stage = 3;
+			
+			gui.s.setVisible(false);
+			gui.op.setVisible(false);
+		}
+		if(gui.high.isMousePressed()){
+			stage = 4;
+			
+			gui.s.setVisible(false);
+			gui.op.setVisible(false);
+			gui.high.setVisible(false);
+		}
+		if(gui.ex.isMousePressed()){
+			System.exit(0);
 		}
 		//menu.drawMainMenu();
 		gui.drawGUIMenu();	
