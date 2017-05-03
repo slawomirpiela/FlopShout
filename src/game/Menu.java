@@ -18,7 +18,7 @@ public class Menu
 		float hwidth = parent.width/2;
 		float hheight = parent.height/2;
 		float menulist[] = {200,350,440,510,590};
-		float menuele[] = {210,355,425,495,515};
+		float menuele[] = {210,355,425,495,565};
 		
 		//if the user is in the menu
 		if(FlopShout.stage == 0){
@@ -40,7 +40,7 @@ public class Menu
 			parent.fill(255,0,0);
 			parent.text("Start Game", hwidth,menuele[1] + 15);
 			if(parent.mousePressed){
-				FlopShout.stage = 1;
+				//FlopShout.stage = 1;
 				}
 			}
 		else{
@@ -79,41 +79,70 @@ public class Menu
 		parent.rect(hwidth - 115, 465, 230, 60);
 		} // end of - if stage = 0 statement
 
-		
+		//Options menu
 	if(FlopShout.stage == 2){
+		//starting menu elements
 		parent.background(255);
 		parent.fill(0);
 		parent.textAlign(parent.CENTER);
-		parent.text("Options", hwidth, menulist[0]);
-		parent.text("Change difficulty ", parent.width/2, menulist[1]);
-		parent.text("  - "+FlopShout.difficulty + " +  ", parent.width/2 + 250, menulist[1]);
-		if(parent.mousePressed == true && parent.mouseX > 880 && parent.mouseX < 900 && parent.mouseY > 300 && parent.mouseY < 400 && FlopShout.difficulty < -1)
-		{
-			FlopShout.difficulty -= 1;
-		}
-		if(parent.mousePressed == true && parent.mouseX > 800 && parent.mouseX < 650 && parent.mouseY > 330 && parent.mouseY < 370 && FlopShout.difficulty < 5)
-		{
-			FlopShout.difficulty += 1;
-		}
-		parent.text("Options", parent.width/2, menulist[2]);
-		parent.text("Quit", parent.width/2, menulist[3]);
-	}
-	
-	//Game over view
-	if(FlopShout.stage == 4){
-		parent.background(255);
-		parent.textAlign(parent.CENTER);
-		parent.fill(0);
-		parent.text("GAME OVER", hwidth, menuele[0] + 15);
-		parent.text(" Your score was " + (FlopShout.score), hwidth,menuele[1] + 15);
-		parent.text("HighScore = " +FlopShout.highscore, hwidth,menuele[2] + 15);
-		parent.text("Back to the menu", hwidth, parent.height - 170);
-		parent.text("Restart", 200, parent.height - 100);
-		parent.text("Quit", parent.width - 200, parent.height - 100);
+		parent.text("Options", hwidth, menuele[0]);
+		parent.text("Difficulty", hwidth, menuele[1]+15);
+		parent.text("  - "+FlopShout.difficulty + " +  ", parent.width/2 + 200, menuele[1]+15);
+		parent.text("Easy Mode ?", hwidth, menuele[2]+15);
+		parent.text("Play again!", hwidth, menuele[3]+15);
+		parent.text("Quit", hwidth, menuele[4]+15);
 		
-		if(parent.mouseX > hwidth + 40 && parent.mouseX < hwidth + 160 && parent.mouseY > parent.height - 145 && parent.mouseY < parent.height - 90 ){
+		//options button
+		if(parent.mouseX > hwidth - 115 && parent.mouseX < hwidth + 270 && parent.mouseY > 325 && parent.mouseY < 385 ){
+			//FlopShout.stage = 2;
 			parent.fill(255,0,0);
-			parent.text("Quit", parent.width - 200, parent.height - 100);
+			parent.text("Difficulty", hwidth, menuele[1] + 15);
+			if(parent.mousePressed)	{
+				if(parent.mouseX > 420 && parent.mouseX < 500 && FlopShout.difficulty > -1)
+			{
+				FlopShout.difficulty -= 1;
+			}
+			if(parent.mouseX > 525 && parent.mouseX < 560  && FlopShout.difficulty < 5)
+			{
+				FlopShout.difficulty += 1;
+			
+			}
+		else{
+			parent.fill(0,0,0,0);
+			}
+			}
+		}
+		
+		//easy mode
+		if(parent.mouseX > hwidth - 130 && parent.mouseX < hwidth + 130 && parent.mouseY > 415 && parent.mouseY < 465 ){
+			parent.fill(255,0,0);
+			parent.text("Easy Mode ?", hwidth, menuele[2] + 15);
+			if(parent.mousePressed)
+				if(FlopShout.ez_mode == false || FlopShout.ez_mode == true){
+				FlopShout.ez_mode = !FlopShout.ez_mode;
+				}
+			}
+		else{
+			
+			parent.fill(0,0,0,0);
+			}
+		parent.println(FlopShout.ez_mode);
+		//back to menu
+		if(parent.mouseX > hwidth - 130 && parent.mouseX < hwidth + 130 && parent.mouseY > 475 && parent.mouseY < 525 ){
+			parent.fill(255,0,0);
+			parent.text("Play again!", hwidth, menuele[3] + 15);
+			if(parent.mousePressed){
+				FlopShout.stage = 0;
+				}
+			}
+		else{
+			parent.fill(0,0,0,0);
+			}
+		
+		//QUIT
+		if(parent.mouseX > hwidth - 80 && parent.mouseX < hwidth + 80 && parent.mouseY > 540 && parent.mouseY < 600 ){
+			parent.fill(255,0,0);
+			parent.text("Quit", hwidth, menuele[4]+15);
 			if(parent.mousePressed){
 				FlopShout.stage = 3;
 				System.exit(0);
@@ -123,6 +152,42 @@ public class Menu
 			parent.fill(0,0,0,0);
 			}
 	}
-}
 	
+	//Game over view
+		if(FlopShout.stage == 4){
+			parent.background(255);
+			parent.textAlign(parent.CENTER);
+			parent.fill(0);
+			parent.text("GAME OVER", hwidth, menuele[0] + 15);
+			parent.text(" Your score was " + (FlopShout.score), hwidth,menuele[1] + 15);
+			parent.text("HighScore = " +FlopShout.highscore, hwidth,menuele[2] + 15);
+			parent.text("Restart", 200, parent.height - 100);
+			parent.text("Quit", parent.width - 200, parent.height - 100);
+			
+			//restart button
+			if(parent.mouseX > hwidth -250 && parent.mouseX < hwidth -20  && parent.mouseY > parent.height - 145 && parent.mouseY < parent.height - 90 ){
+				parent.fill(255,0,0);
+				parent.text("Restart", 200, parent.height - 100);
+				if(parent.mousePressed){
+					FlopShout.stage = 1;
+					}
+				}
+			else{
+				parent.fill(0,0,0,0);
+				}
+			
+			//quit button
+			if(parent.mouseX > hwidth + 40 && parent.mouseX < hwidth + 160 && parent.mouseY > parent.height - 145 && parent.mouseY < parent.height - 90 ){
+				parent.fill(255,0,0);
+				parent.text("Quit", parent.width - 200, parent.height - 100);
+				if(parent.mousePressed){
+					FlopShout.stage = 3;
+					System.exit(0);
+					}
+				}
+			else{
+				parent.fill(0,0,0,0);
+				}
+		}
+	}
 }

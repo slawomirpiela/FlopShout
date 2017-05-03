@@ -1,8 +1,6 @@
 package game;
 
 import processing.core.*;
-import controlP5.*;
-import controlP5.*;
 public class FlopShout extends PApplet {
 
 	PImage bgImg;
@@ -15,8 +13,8 @@ public class FlopShout extends PApplet {
 	Menu menu; //not yet implemented
 	Bird bird; 
 	Column columns;
-	boolean ez_mode = false; //ez mode to be changed from true = false in the menu
-	GUI gui; //possibly will be implemented
+	static boolean ez_mode = false; //ez mode to be changed from true = false in the menu
+
 	
 	public static void main(String[] args){
 		PApplet.main("game.FlopShout");  
@@ -30,19 +28,18 @@ public class FlopShout extends PApplet {
 		menu = new Menu(this); //to be implemented / replaced by P5Control
 		columns = new Column(this);
 		bird = new Bird(this);
-		gui = new GUI(this);
-		//cp5 = new ControlP5(this);
-		//cp5.addButton("Start Game").setValue(0).setPosition((float)(width*0.25),(float)(height*0.4625)).setSize(230,60);
-		}
+	}
 	
 	public void settings(){
 		  size(600, 800);
 		}
 
 	public void draw() { 
-		
+		menu.drawMainMenu();
 		if(stage == 1){
-			
+
+
+			columns.draw();
 			//background(255);
 			imageMode(CORNER);
 			image(bgImg,x,0);
@@ -70,11 +67,11 @@ public class FlopShout extends PApplet {
 					columns.col_ypos[i] = (int) random(150, height-150);
 					columns.col_xpos[i] = width + 25;
 					score = score+ 1;
+					highscore = max(++score, highscore);
 				}
 				
 				//moving the columns to the left
 				columns.col_xpos[i] -= 4;
-				
 				
 				//collision
 				if(ez_mode == false){
@@ -93,9 +90,9 @@ public class FlopShout extends PApplet {
 			text(""+ (score), width/2 - 15, 700);
 		}
 
-		if (gui.s.isMousePressed()) { 
+		if (mousePressed) { 
 			//velocity = -12;
-			if(stage == 0 && ez_mode == false){
+			if(stage == 0 || stage == 4 && ez_mode == false){
 				columns.col_xpos[0] = 600;
 				columns.col_ypos[0] = bird.b_ypos = height/2;
 				columns.col_xpos[1] = 900;
@@ -103,10 +100,8 @@ public class FlopShout extends PApplet {
 				score = 1;
 				stage = 1;
 				
-				gui.s.setVisible(false);
-				gui.op.setVisible(false);
 			}
-			if(stage == 0 && ez_mode == true) {
+			if(stage == 0 || stage == 4 && ez_mode == true) {
 				bird.b_ypos = 200;
 				columns.col_xpos[0] = 600;
 				columns.col_ypos[0] = 500;
@@ -115,28 +110,7 @@ public class FlopShout extends PApplet {
 				stage = 1;
 				score = 1;
 				
-				gui.s.setVisible(false);
-				gui.op.setVisible(false);
 			}
 		}
-		if(gui.op.isMousePressed()){
-			stage = 3;
-			
-			gui.s.setVisible(false);
-			gui.op.setVisible(false);
-		}
-		if(gui.high.isMousePressed()){
-			stage = 4;
-			
-			gui.s.setVisible(false);
-			gui.op.setVisible(false);
-			gui.high.setVisible(false);
-		}
-		if(gui.ex.isMousePressed()){
-			System.exit(0);
-		}
-		//menu.drawMainMenu();
-		gui.drawGUIMenu();	
-		columns.draw();
 	}
 }
