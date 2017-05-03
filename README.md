@@ -13,6 +13,12 @@ Our initial goal for this game was to make a game that was voice controlled. The
 - Humour!
   (Come on a flying potato? That's hilarious!)
 # Pictures and development progress of the design 
-
-
+- Early picture of the hero flying potato in development
+http://imgur.com/HDGupxL
+- Play button that was going to be used but then scrapped, because it didn't fit the theme
+http://imgur.com/k6WAmFW
+- tube that was going to be used originally
+http://imgur.com/5jXSF1W
+- and finally the final version of the tube
+http://imgur.com/LfvJ0hS
 # Video
