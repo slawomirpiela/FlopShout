@@ -23,6 +23,6 @@ http://imgur.com/5jXSF1W
 -and finally the final version of the tube 
 http://imgur.com/LfvJ0hS
 -Overall changes to the menu and the design
-[url=http://imgur.com/bIuPE0t][img]http://i.imgur.com/bIuPE0t.png[/img][/url]
-[img]http://i.imgur.com/9RwP7wV.png[/img]
+<a href="http://imgur.com/bIuPE0t"><img src="http://i.imgur.com/bIuPE0t.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/9RwP7wV"><img src="http://i.imgur.com/9RwP7wV.png" title="source: imgur.com" /></a>
 Video
