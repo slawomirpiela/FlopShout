@@ -93,8 +93,8 @@ public class FlopShout extends PApplet {
 			text(""+ (score), width/2 - 15, 700);
 		}
 
-		if (mousePressed) { 
-			velocity = -12;
+		if (gui.b.isMousePressed()) { 
+			//velocity = -12;
 			if(stage == 0 && ez_mode == false){
 				columns.col_xpos[0] = 600;
 				columns.col_ypos[0] = bird.b_ypos = height/2;

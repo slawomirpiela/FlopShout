@@ -12,7 +12,7 @@ public class Bird {
 	
 	float b_xpos,b_ypos = 0;
 	//float velocity = 1;
-	//float gravity = (float) 0.0005;
+	float gravity = (float) 0.0005;
 	
 	Bird(PApplet p) {		
 		parent = p;
@@ -23,11 +23,19 @@ public class Bird {
 	public void display(){
 		heroImg = parent.loadImage("potfinal.png");
 			b_xpos = parent.width/2;
-			//parent.tint(255, 126);
+
 			parent.image(heroImg, b_xpos, b_ypos);
-			FlopShout.velocity += 1;
+			FlopShout.velocity += 0.5;
 			b_ypos += FlopShout.velocity;
+			
+			for(int i = 0; i < in.bufferSize() - 1; i++){
+				if(b_ypos > 0 && b_ypos < parent.height && parent.frameCount % 20 == 0 && in.left.get(i) > 0 && in.left.get(i) < 0.03){
+					FlopShout.velocity =-(in.left.get(i)*parent.height/2);
+					parent.println(in.left.get(i));
+					parent.println(in.left.get(i)*parent.height/2);
+				}
+			}
+			
 		}
 
 }
-
