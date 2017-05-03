@@ -4,16 +4,16 @@ Our initial goal for this game was to make a game that was voice controlled. The
 
 #Feature list
 
--Classes
--Constructors
--Use of the minim library, processing core etc.
--Original Artowork
--Loops
--Input Listeners
--Use of static variables
--Humour! (Come on a flying potato? That's hilarious!)
+- Classes
+- Constructors
+- Use of the minim library, processing core etc.
+- Original Artowork
+- Loops
+- Input Listeners
+- Use of static variables
+- Humour! (Come on a flying potato? That's hilarious!)
 
-#Pictures and development progress of the design
+#Pictures and development progress of the design (links only as the images are too big)
 -Early picture of the hero flying potato in development 
 http://imgur.com/HDGupxL
 -Play button that was going to be used but then scrapped, because it didn't fit the theme 
@@ -23,6 +23,6 @@ http://imgur.com/5jXSF1W
 -and finally the final version of the tube 
 http://imgur.com/LfvJ0hS
 -Overall changes to the menu and the design
-<a href="http://imgur.com/bIuPE0t"><img src="http://i.imgur.com/bIuPE0t.png" title="source: imgur.com" /></a>
-<a href="http://imgur.com/9RwP7wV"><img src="http://i.imgur.com/9RwP7wV.png" title="source: imgur.com" /></a>
+http://imgur.com/bIuPE0t
+http://imgur.com/9RwP7wV
 Video
