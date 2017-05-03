@@ -6,7 +6,7 @@ Our initial goal for this game was to make a game that was voice controlled. The
 - Classes
 - Constructors
 - Use of the minim library, processing core etc.
-- Original Artowork
+- Original Artwork
 - Loops
 - Input Listeners
 - Use of static variables
